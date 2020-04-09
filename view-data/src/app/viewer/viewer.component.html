@@ -1,0 +1,17 @@
+<div *ngIf="album" class="album">
+
+    <div *ngIf="editing">
+        <input [(ngModel)]="album.title" placeholder="Title">
+        <input [(ngModel)]="album.author" placeholder="Author">
+        <input [(ngModel)]="album.year" placeholder="Year">
+        <button (click)="onSave()">Zapisz</button>
+    </div>
+
+    <div *ngIf="!editing">
+        <p>
+            <button (click)="onEdit()">Edytuj</button>
+            <b>{{album.title}}</b> - {{album.author}} ({{album.year}}) 
+        </p>
+    </div>
+
+</div>
