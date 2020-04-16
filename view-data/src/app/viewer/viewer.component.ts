@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Album } from '../models/album';
+import { AlbumsService } from '../services/albums.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'application-viewer',
@@ -15,10 +17,21 @@ export class ViewerComponent implements OnInit {
 
   editing = false;
 
-  constructor() { }
+  constructor(
+    private albumsService: AlbumsService,
+    private activedRoute: ActivatedRoute ) { }
+
+  getAlbum() {
+    const id=+this.activedRoute.snapshot.paramMap.get('id');
+    this.albumsService.getAlbum(id).subscribe(album => {
+      this.album = album;
+    });
+  }
 
   ngOnInit(): void {
     this.editing = this.edit;
+
+    this.getAlbum();
   }
 
   onSave(): void {
