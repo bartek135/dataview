@@ -1,0 +1,15 @@
+<div *ngIf="sync">
+    <div *ngFor="let album of albums">
+    
+      <application-viewer [album]="album" [edit]="isEmpty(album)" (albumChanged)="onAlbumChanged($event)"></application-viewer>
+    
+    </div>
+    
+    <button (click)="addAlbum()"> Dodaj nowy album </button>
+    
+    </div>
+    
+    <div *ngIf="!sync">
+      <p >Błąd komunikacji z serwerem.</p>
+      <button (click)="refresh()"> Odśwież </button>
+    </div>

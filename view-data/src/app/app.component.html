@@ -1,18 +1,15 @@
 
-<div *ngIf="sync">
-<div *ngFor="let album of albums">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1 class="spaced"> 
+      ALBUMYAPP
+    </h1>
+      <div>
+        <mat-button class="spaced" [routerLink]="'/albums'">Albumy</mat-button>
+        <mat-button class="spaced" [routerLink]="'/about'">O Aplikacji</mat-button>
+      </div>
+ </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet>
 
-  <application-viewer [album]="album" [edit]="isEmpty(album)" (albumChanged)="onAlbumChanged($event)"></application-viewer>
-
-</div>
-
-<button (click)="addAlbum()"> Dodaj nowy album </button>
-
-<router-outlet></router-outlet>
-
-</div>
-
-<div *ngIf="!sync">
-  <p >Błąd komunikacji z serwerem.</p>
-  <button (click)="refresh()"> Odśwież </button>
-</div>
+</router-outlet>
