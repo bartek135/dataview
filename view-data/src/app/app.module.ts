@@ -13,6 +13,8 @@ import { ListComponent } from './list/list.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MatCardModule } from '@angular/material/card';
     ToastrModule.forRoot(),
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

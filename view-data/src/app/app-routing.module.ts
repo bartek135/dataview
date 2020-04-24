@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'albums', component: ListComponent },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/albums', pathMatch: 'full' },
-  { path: 'albums/:id', component: ViewerComponent}
+  { path: 'albums/:id', component: ViewerComponent},
+  { path: 'albums/new', component: ViewerComponent}
   
 ];
 

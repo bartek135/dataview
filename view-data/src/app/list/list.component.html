@@ -1,4 +1,5 @@
-<div *ngIf="sync">
+
+<button mat-button color="accent" routerLink="/albums/new"> Dodaj nowy album </button><div *ngIf="sync">
     <div *ngFor="let album of albums">
     
       <mat-card routerLink="/albums/{{album.id}}">
@@ -7,7 +8,6 @@
 
     </div>
     
-    <button (click)="addAlbum()"> Dodaj nowy album </button>
     
     </div>
     

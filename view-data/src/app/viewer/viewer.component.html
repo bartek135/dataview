@@ -1,15 +1,26 @@
+<button mat-button color="accent" (click)="onBack()">Wstecz</button>
+<button *ngIf="!editing" mat-button (click)="onEdit()">Edytuj</button>
+<button *ngIf="editing" mat-button (click)="onSave()">Zapisz</button>
+<button *ngIf="!editing" mat-button (click)="onDelete()">Usuń</button>
 <div *ngIf="album" class="album">
-
+    <h1 >{{album.title}}</h1>
     <div *ngIf="editing">
-        <input [(ngModel)]="album.title" placeholder="Title">
-        <input [(ngModel)]="album.author" placeholder="Author">
-        <input [(ngModel)]="album.year" placeholder="Year">
-        <button (click)="onSave()">Zapisz</button>
-    </div>
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="album.title" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="album.author" placeholder="Author">    
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="album.year" placeholder="Year">    
+        </mat-form-field>
+              
+        
+        </div>
 
     <div *ngIf="!editing">
         <p>
-            <button (click)="onEdit()">Edytuj</button>
             <b>{{album.title}}</b> - {{album.author}} ({{album.year}}) 
         </p>
     </div>
